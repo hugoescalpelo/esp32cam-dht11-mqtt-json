@@ -1,0 +1,66 @@
+# Taller de estacion climatica por Internet de las Cosas
+
+## Requisitos
+
+1. Node JS
+2. NodeRed
+3. Mosquitto
+	- sudo apt install mosquitto
+4. Cuenta en OpenWeathermap.org
+5. Nodos Dashboard
+
+Todos los nodos mandan un JSON
+
+Objeto msg, contiene al menos 2 variables
+- payload
+- _msgid
+- topic
+
+
+## Ejercicio
+
+1. Agregar un nodo HTTP Request
+2. Obtener un API Key
+- a0f4e98d1a27e3c4b7b53aab05fa9d75
+- API Call
+
+https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
+
+Lat = 19.432600
+Lon = -99.133713
+Notas
+
+
+https://api.openweathermap.org/data/2.5/weather?lat=19.432600&lon=-99.133713&appid=a0f4e98d1a27e3c4b7b53aab05fa9d75&units=metric
+
+Comentarios
+
+El internet de las COsas es una de las botnets mas grandes del mundo
+
+IoT - Internet of Things - Internet de las Cosas - La S es de seguridad
+Material extra
+
+El internet de las cosas tiene como proposito obtener la mayor cantidad de informacion y ofrecer una respuesta contextualizada
+
+https://criticalengineering.org/es
+
+El papel del autor como productor - Walter Benjamin
+
+Las 7 paradojas de la tecnologia - Andrew Feenberg
+
+https://medium.com/the-ferenstein-wire/the-birth-and-death-of-privacy-3-000-years-of-history-in-50-images-614c26059e
+
+https://www.youtube.com/watch?v=Qs4OcQNOM34
+
+Cine/Television de algoritmo
+
+Investigar Google Nest
+
+an object oriented defense of poetry - Timothy Morton
+
+Privacidad
+- Ip
+- Cuenta de banco
+- Ubicacion
+- Historial
+- Correo
