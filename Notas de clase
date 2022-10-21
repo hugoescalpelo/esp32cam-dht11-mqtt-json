@@ -46,6 +46,7 @@ Nodo Function Temperatura
 
 msg.payload = msg.payload.main.temp;
 msg.topic = "Temperatura";
+global.set ("temp", msg.payload);
 return msg;
 
 
@@ -58,8 +59,42 @@ return msg;
 7. Agregar nodos Gauge y Chart
 - Agregar un grupo del dashboard a cada grupo de nodos
 
+8. MQTT
+- Funciona por temas codigoIoT/mqtt/clima/morelos
+- Funciona por servidor
+- Funciona con nombres de usuario hugo-89123
+- Seguridad
+- Publicadores
+- Suscriptores
 
+Obtener IP nslookup broker.hivemq.com
+- 3.122.69.139
+
+
+Suscriptor
+
+mosquitto_sub -h 3.122.69.139 -i hugo-18566 -t codigoIoT/mqtt/clima/morelos
+
+
+Publicador
+
+mosquitto_sub -h 3.122.69.139 -i hugo-18566 -t codigoIoT/mqtt/clima/morelos
+
+9. Publicador-Suscriptor
 Comentarios
+
+Nodo Function Temperatura Publica
+
+msg.topic = msg.payload.id;
+msg.payload = msg.payload.temp;
+return msg;
+
+
+Nodo Function Humedad publica
+
+msg.topic = msg.payload.id;
+msg.payload = msg.payload.hum;
+return msg;
 
 El internet de las COsas es una de las botnets mas grandes del mundo
 
