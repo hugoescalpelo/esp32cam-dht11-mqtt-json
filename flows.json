@@ -269,7 +269,7 @@
         "type": "function",
         "z": "70b725a4d1261d77",
         "name": "function 2",
-        "func": "msg.payload = '{\"id\":\"Hugo Vargas\",\"temp\":' + global.get (\"temp\") + ',\"hum\":' + global.get (\"hum\") + '}';\nreturn msg;",
+        "func": "msg.payload = '{\"id\":\"Distraido\",\"temp\":' + global.get (\"temp\") + ',\"hum\":' + global.get (\"hum\") + '}';\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
