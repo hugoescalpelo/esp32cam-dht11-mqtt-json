@@ -33,6 +33,28 @@ Notas
 
 https://api.openweathermap.org/data/2.5/weather?lat=19.432600&lon=-99.133713&appid=a0f4e98d1a27e3c4b7b53aab05fa9d75&units=metric
 
+3. Configurar el Nodo Inject para que funcione cada 1 minuto
+4. Insertar un nodo JSON
+- Always convert to Java Script Objects
+5. Crear una interfaz visual
+- Hacer clic en la pestaña dashboard
+- Agregar una pestaña
+
+6. Seleccionar solo los valores a graficar
+
+Nodo Function Temperatura
+
+msg.payload = msg.payload.main.temp;
+return msg;
+
+
+Nodo Function Humedad
+
+msg.payload = msg.payload.main.humidity;
+return msg;
+
+
+
 Comentarios
 
 El internet de las COsas es una de las botnets mas grandes del mundo
