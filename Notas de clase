@@ -45,14 +45,18 @@ https://api.openweathermap.org/data/2.5/weather?lat=19.432600&lon=-99.133713&app
 Nodo Function Temperatura
 
 msg.payload = msg.payload.main.temp;
+msg.topic = "Temperatura";
 return msg;
 
 
 Nodo Function Humedad
 
 msg.payload = msg.payload.main.humidity;
+msg.topic = "Humedad";
 return msg;
 
+7. Agregar nodos Gauge y Chart
+- Agregar un grupo del dashboard a cada grupo de nodos
 
 
 Comentarios
