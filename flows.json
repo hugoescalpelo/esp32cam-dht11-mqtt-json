@@ -24,7 +24,8 @@
         "y": 80,
         "wires": [
             [
-                "1208d575de7bda78"
+                "1208d575de7bda78",
+                "cedbf0283e9a89be"
             ]
         ]
     },
@@ -41,7 +42,8 @@
         "wires": [
             [
                 "352b7c9bb6e00103",
-                "f892533d06464c3d"
+                "f892533d06464c3d",
+                "eda98d0cc20ac9fc"
             ]
         ]
     },
@@ -191,7 +193,7 @@
         "method": "GET",
         "ret": "txt",
         "paytoqs": "ignore",
-        "url": "https://api.openweathermap.org/data/2.5/weather?lat=19.432188&lon=-99.133382&appid=a0f4e98d1a27e3c4b7b53aab05fa9d75&units=metric",
+        "url": "https://api.openweathermap.org/data/2.5/weather?lat=42.271296&lon=-71.804101&appid=a0f4e98d1a27e3c4b7b53aab05fa9d75&units=metric",
         "tls": "",
         "persist": false,
         "proxy": "",
@@ -418,7 +420,7 @@
         "type": "function",
         "z": "b511507d5236805c",
         "name": "JSON publico",
-        "func": "msg.payload = '{\"id\":\"Hugo Vargas, Col Doctores, CDMX\",\"temp\":' + global.get(\"tempAPI\")+',\"hum\":' + global.get (\"humAPI\") +'}';\nreturn msg;",
+        "func": "msg.payload = '{\"id\":\"Hugo Vargas, Worcester\",\"temp\":' + global.get(\"tempAPI\")+',\"hum\":' + global.get (\"humAPI\") +'}';\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -484,7 +486,7 @@
         "userProps": "",
         "correl": "",
         "expiry": "",
-        "broker": "9c0ed33ac6aef07c",
+        "broker": "f1868b0174764182",
         "x": 660,
         "y": 540,
         "wires": []
@@ -507,7 +509,7 @@
         "topic": "codigoIoT/flow5/mqtt/clima",
         "qos": "2",
         "datatype": "utf8",
-        "broker": "9c0ed33ac6aef07c",
+        "broker": "f1868b0174764182",
         "nl": false,
         "rap": true,
         "rh": 0,
@@ -516,7 +518,8 @@
         "y": 660,
         "wires": [
             [
-                "45cbd324122cdbd1"
+                "45cbd324122cdbd1",
+                "21ea6b88cbc65187"
             ]
         ]
     },
@@ -534,7 +537,8 @@
             [
                 "2d8b74c3b60ff27c",
                 "8ae71bdeb645f5c4",
-                "4feea09c39553c40"
+                "4feea09c39553c40",
+                "21ea6b88cbc65187"
             ]
         ]
     },
@@ -549,7 +553,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 870,
+        "x": 850,
         "y": 660,
         "wires": [
             [
@@ -568,7 +572,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 860,
+        "x": 840,
         "y": 720,
         "wires": [
             [
@@ -687,12 +691,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 810,
+        "x": 790,
         "y": 840,
         "wires": [
             [
-                "faa2352f5244c114",
-                "21ea6b88cbc65187"
+                "faa2352f5244c114"
             ]
         ]
     },
@@ -727,7 +730,7 @@
         "order": 3,
         "width": 12,
         "height": 9,
-        "format": "<iframe\n    src=\"http://localhost:3000/d-solo/69PkIBMVz/clima-api?orgId=1&from=1662971003557&to=1662987917804&panelId=123125\" width=\"600\" height=\"400\" frameborder=\"0\"></iframe>",
+        "format": "<iframe\n    src=\"http://localhost:3000/d-solo/69PkIBMVz/clima-api?orgId=1&from=1682676674656&to=1682682325120&panelId=123125\"\n    width=\"600\" height=\"400\" frameborder=\"0\"></iframe>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
@@ -748,7 +751,7 @@
         "order": 4,
         "width": 12,
         "height": 9,
-        "format": "<iframe\n    src=\"http://localhost:3000/d-solo/69PkIBMVz/clima-api?orgId=1&from=1662974340710&to=1662995940710&panelId=123127\" width=\"600\" height=\"400\" frameborder=\"0\"></iframe>",
+        "format": "<iframe\n    src=\"http://localhost:3000/d-solo/69PkIBMVz/clima-api?orgId=1&from=1682676674656&to=1682682325120&panelId=123127\"\n    width=\"600\" height=\"400\" frameborder=\"0\"></iframe>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
@@ -835,7 +838,7 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1120,
+        "x": 800,
         "y": 920,
         "wires": []
     },
@@ -854,6 +857,35 @@
         "x": 840,
         "y": 200,
         "wires": []
+    },
+    {
+        "id": "cedbf0283e9a89be",
+        "type": "link out",
+        "z": "b511507d5236805c",
+        "name": "tunel mqtt",
+        "mode": "link",
+        "links": [
+            "0015cacee5283ca4"
+        ],
+        "x": 315,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "0015cacee5283ca4",
+        "type": "link in",
+        "z": "b511507d5236805c",
+        "name": "link in 1",
+        "links": [
+            "cedbf0283e9a89be"
+        ],
+        "x": 445,
+        "y": 480,
+        "wires": [
+            [
+                "93f3c58c609dbd07"
+            ]
+        ]
     },
     {
         "id": "9c0ed33ac6aef07c",
@@ -903,6 +935,33 @@
         "width": "12",
         "collapse": false,
         "className": ""
+    },
+    {
+        "id": "f1868b0174764182",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "35.157.253.43",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
     },
     {
         "id": "e07c19ccf8899559",
