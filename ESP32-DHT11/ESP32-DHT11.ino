@@ -4,7 +4,7 @@
  * por: Hugo Escalpelo
  * Fecha: 28 de julio de 2021
  * Actualizado por: Hugo Escalpelo
- * Fecha: 24 de abril de 2023
+ * Fecha: 06 de junio de 2023
  * 
  * Este programa realiza la lectura del sensor DHT11 con ayuda de la biblioteca
  * de Adafruit y envía el temperatura y humedad relativa por MQTT en un JSON.
@@ -34,8 +34,8 @@ const char* ssid = "********";  // Aquí debes poner el nombre de tu red
 const char* password = "********";  // Aquí debes poner la contraseña de tu red
 
 //Datos del broker MQTT
-const char* mqtt_server = "192.168.1.142"; // Si estas en una red local, coloca la IP asignada, en caso contrario, coloca la IP publica
-IPAddress server(192,168,1,142);
+const char* mqtt_server = "192.168.*.*"; // Si estas en una red local, coloca la IP asignada, en caso contrario, coloca la IP publica
+IPAddress server(192,168,*,*);
 
 // Objetos
 WiFiClient espClient; // Este objeto maneja los datos de conexion WiFi
@@ -127,7 +127,7 @@ void loop() {
     int str_len = json.length() + 1;//Se calcula la longitud del string
     char char_array[str_len];//Se crea un arreglo de caracteres de dicha longitud
     json.toCharArray(char_array, str_len);//Se convierte el string a char array    
-    client.publish("codigoIoT/flow5/mqtt", char_array); 
+    client.publish("codigoIoT/esp32/mqtt", char_array); 
   }// fin del if (timeNow - timeLast > wait)
 }// fin del void loop ()
 
@@ -155,17 +155,17 @@ void callback(char* topic, byte* message, unsigned int length) {
   // En esta parte puedes agregar las funciones que requieras para actuar segun lo necesites al recibir un mensaje MQTT
 
   // Ejemplo, en caso de recibir el mensaje true - false, se cambiará el estado del led soldado en la placa.
-  // El ESP323CAM está suscrito al tema codigoIoT/ejemplo/mqttin
-  if (String(topic) == "codigoIoT/ejemplo/mqttin") {  // En caso de recibirse mensaje en el tema codigoIoT/ejemplo/mqttin
+  // El ESP323CAM está suscrito al tema codigoIoT/esp32/callback
+  if (String(topic) == "codigoIoT/esp32/callback") {  // En caso de recibirse mensaje en el tema codigoIoT/esp32/callback
     if(messageTemp == "true"){
       Serial.println("Led encendido");
       digitalWrite(flashLedPin, HIGH);
-    }// fin del if (String(topic) == "codigoIoT/ejemplo/mqttin")
+    }// fin del if (String(topic) == "codigoIoT/esp32/callback")
     else if(messageTemp == "false"){
       Serial.println("Led apagado");
       digitalWrite(flashLedPin, LOW);
     }// fin del else if(messageTemp == "false")
-  }// fin del if (String(topic) == "codigoIoT/ejemplo/mqttin")
+  }// fin del if (String(topic) == "codigoIoT/esp32/callback")
 }// fin del void callback
 
 // Función para reconectarse
@@ -176,7 +176,7 @@ void reconnect() {
     // Intentar reconexión
     if (client.connect("ESP32CAMClient")) { //Pregunta por el resultado del intento de conexión
       Serial.println("Conectado");
-      client.subscribe("codigoIoT/ejemplo/mqttin"); // Esta función realiza la suscripción al tema
+      client.subscribe("codigoIoT/esp32/callback"); // Esta función realiza la suscripción al tema
     }// fin del  if (client.connect("ESP32CAMClient"))
     else {  //en caso de que la conexión no se logre
       Serial.print("Conexion fallida, Error rc=");
